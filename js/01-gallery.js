@@ -8,7 +8,6 @@ const list = document.querySelector('.gallery');
 list.insertAdjacentHTML('beforeend', createMarkup(galleryItems));
 list.addEventListener('click', handleClick);
 
-
 function handleClick(event) { 
     event.preventDefault();
     if (event.target === event.currentTarget) { 
@@ -30,8 +29,7 @@ function handleKeyPress(event) {
     if (event.key === 'Escape') {
       instance.close();
     }
-    }
-    
+    }    
 };
 
 function createMarkup(arr) { 
