@@ -18,17 +18,20 @@ function handleClick(event) {
     const imageSource = event.target.dataset.source;
     const instance = basicLightbox.create(`
 <img src="${imageSource}">
-`)
+`, {
+	onShow: (instance) => {
+    document.addEventListener('keyup', handleKeyPress);},
+	onClose: (instance) => {
+    document.removeEventListener('keyup', handleKeyPress);}
+})
     instance.show();
         
-    function handleKeyPress(event) {
+function handleKeyPress(event) {
     if (event.key === 'Escape') {
       instance.close();
-      document.removeEventListener('keyup', handleKeyPress);
     }
     }
     
-    document.addEventListener('keyup', handleKeyPress);
 };
 
 function createMarkup(arr) { 
